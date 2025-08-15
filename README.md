@@ -1,37 +1,39 @@
-## Driver–Shipment Matching Simulator
+## Simulador de Correspondência Motorista–Entrega
 
-# Technical Test – Jr Backend / DevOps
+# Teste Técnico – Jr Backend / DevOps
 
-### Context
+### Contexto
 
-In this test, you will simulate a **real backend task** at Shippify.
+Neste teste, você irá simular uma **tarefa real de backend** na Shippify.
 
-The operations team is facing an **emergency**:
+A equipe de operações está enfrentando uma **emergência**:
 
-The matching system went down over the weekend, leaving **hundreds of shipments** unassigned.
+O sistema de correspondência caiu durante o final de semana, deixando **centenas de entregas** sem motorista atribuído.
 
-Your mission is to **simulate** the driver–shipment matching system so dispatchers can continue working while the main service is fixed.
-
----
-
-## Objective
-
-Create an **Express.js POST endpoint** in Node.js that performs the following:
-
-1. **Receive input data** via an **HTTP POST** request containing:
-    - A list of **drivers** (ID, coordinates, and deliveries completed).
-    - A list of **shipments** (ID and coordinates).
-2. **For each shipment**, assign the closest available driver.
-3. Each driver can take **only one** shipment.
-4. If no driver is available for a shipment, mark it as **unassigned**.
-5. Return:
-    - A list of assignments including **distance in km** (rounded to 2 decimals).
-    - A list of **unassigned shipments**.
-    - A list of **unused drivers**.
+Sua missão é **simular** o sistema de correspondência motorista–entrega para que os despachantes possam continuar trabalhando enquanto o serviço principal é corrigido.
 
 ---
 
-### Example Input
+## Objetivo
+
+Criar um **endpoint POST em Express.js** no Node.js que execute o seguinte:
+
+1. **Receber dados de entrada** via **requisição HTTP POST** contendo:
+
+   * Uma lista de **motoristas** (ID, coordenadas e entregas completadas).
+   * Uma lista de **entregas** (ID e coordenadas).
+2. **Para cada entrega**, atribuir o motorista disponível mais próximo.
+3. Cada motorista pode pegar **apenas uma** entrega.
+4. Se não houver motorista disponível para uma entrega, marque-a como **não atribuída**.
+5. Retornar:
+
+   * Uma lista de atribuições incluindo **distância em km** (arredondada para 2 casas decimais).
+   * Uma lista de **entregas não atribuídas**.
+   * Uma lista de **motoristas não utilizados**.
+
+---
+
+### Exemplo de Entrada
 
 ```json
 {
@@ -45,12 +47,11 @@ Create an **Express.js POST endpoint** in Node.js that performs the following:
     { "id": "S2", "lat": -0.1700, "lng": -78.4650 }
   ]
 }
-
 ```
 
 ---
 
-### Expected Output
+### Saída Esperada
 
 ```json
 {
@@ -61,52 +62,53 @@ Create an **Express.js POST endpoint** in Node.js that performs the following:
   "unassignedShipments": [],
   "unassignedDrivers": ["D1"]
 }
-
 ```
 
 ---
 
-### Rules
+### Regras
 
-- Distances must be calculated using the **Haversine formula**.
-- If `drivers` or `shipments` is empty, return an error.
-- **Fairness rule:**
-    
-    If two drivers are exactly the same distance from a shipment, assign the one with **fewer deliveries completed** (`deliveriesCompleted` field).
-    
-- The `assignments` list must be **sorted by shortest distance first**.
+* As distâncias devem ser calculadas usando a **fórmula de Haversine**.
 
----
+* Se `drivers` ou `shipments` estiver vazio, retornar um erro.
 
-### Optional Extras (Bonus Points)
+* **Regra de justiça:**
 
-- Accept a `maxDistanceKm` parameter to skip shipments too far from any driver.
-- Return the **total distance** covered by all assigned drivers.
+  Se dois motoristas estiverem exatamente à mesma distância de uma entrega, atribua ao que tiver **menos entregas completadas** (`deliveriesCompleted`).
+
+* A lista `assignments` deve ser **ordenada pela menor distância primeiro**.
 
 ---
 
-## Provided Files
+### Extras Opcionais (Pontos Bônus)
 
-The repository you will fork contains:
-
-- `index.js` → Starter Express endpoint (logic not implemented).
-
-## Submission
-
-1. **Fork** the original GitHub repository: [**`https://github.com/shippify/tech-interviews/backend-jr-challenge`**](https://www.notion.so/Backend-30-mins-24912304bb2e8095aea9ce0a14f55af5?pvs=21)
-2. Clone your fork to your local machine and implement the matching logic in the provided `index.js`.
-3. Commit your changes.
-4. Push your code to your forked repository on GitHub.
-5. Open a **Pull Request (PR)** from your fork to the original repository.
-6. In the PR description, include any notes or explanations about your implementation.
+* Aceitar um parâmetro `maxDistanceKm` para ignorar entregas muito distantes de qualquer motorista.
+* Retornar a **distância total** percorrida por todos os motoristas atribuídos.
 
 ---
 
-### Evaluation Criteria
+## Arquivos Fornecidos
 
-- Correct and efficient matching logic.
-- Clean, modular, and readable code.
-- Proper handling of asynchronous operations (if used).
-- Input validation and error handling.
-- Clear, consistent output format.
-- Good repository structure and documentation.
+O repositório que você irá forkear contém:
+
+* `index.js` → Endpoint Express inicial (lógica não implementada).
+
+## Submissão
+
+1. **Fork** do repositório original no GitHub: [**`https://github.com/shippify/tech-interviews/backend-jr-challenge`**](https://www.notion.so/Backend-30-mins-24912304bb2e8095aea9ce0a14f55af5?pvs=21)
+2. Clone seu fork na sua máquina local e implemente a lógica de correspondência no `index.js` fornecido.
+3. Faça commit das suas alterações.
+4. Envie seu código para o repositório forkado no GitHub.
+5. Abra um **Pull Request (PR)** do seu fork para o repositório original.
+6. Na descrição do PR, inclua quaisquer notas ou explicações sobre sua implementação.
+
+---
+
+### Critérios de Avaliação
+
+* Lógica de correspondência correta e eficiente.
+* Código limpo, modular e legível.
+* Tratamento adequado de operações assíncronas (se utilizadas).
+* Validação de entrada e tratamento de erros.
+* Formato de saída claro e consistente.
+* Boa estrutura do repositório e documentação.
