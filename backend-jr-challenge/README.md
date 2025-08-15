@@ -1,6 +1,6 @@
 ## Simulador de Correspondência Motorista–Entrega
 
-# Teste Técnico – Jr Backend / DevOps
+# Teste Técnico – Jr Backend
 
 ### Contexto
 

@@ -1,6 +1,6 @@
 ## Driver–Shipment Matching Simulator
 
-# Technical Test – Jr Backend / DevOps
+# Technical Test – Jr Backend
 
 ### Context
 
