@@ -10,6 +10,20 @@ The test is divided into two main parts that will evaluate:
 
 ---
 
+## 🔐 AWS Credentials
+
+To access the test environment, use the following credentials:
+
+```
+Username: Tests
+Password: Ask for Interviewer
+Sign in URL: https://shippifydev.signin.aws.amazon.com/console
+```
+
+**Note**: The interviewer will provide the password at the start of the test.
+
+---
+
 ## 🔹 PART 1: Technical Questions (10 minutes)
 
 ### 1. **EC2 Environment Setup and MySQL**
@@ -37,10 +51,12 @@ The test is divided into two main parts that will evaluate:
 ```
 - Access to MySQL dev console
 - User: test
-- Password: cDWDvzrFCRjFdyVE
+- Password: Ask for Interviewer
 - Host: db.dev.shippify.co
 - Schema: test
 ```
+
+**Note**: The interviewer will provide the password at the start of the test.
 
 **Environment**
 

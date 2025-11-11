@@ -10,6 +10,20 @@ O teste está dividido em duas partes principais que avaliarão:
 
 ---
 
+## 🔐 Credenciais AWS
+
+Para acessar o ambiente de testes, utilize as seguintes credenciais:
+
+```
+Username: Tests
+Password: Ask for Interviewer
+Sign in URL: https://shippifydev.signin.aws.amazon.com/console
+```
+
+**Nota**: O entrevistador fornecerá a senha no início do teste.
+
+---
+
 ## 🔹 PARTE 1: Perguntas Técnicas (10 minutos)
 
 ### 1. **Configuração de Ambiente EC2 e MySQL**
@@ -37,10 +51,12 @@ O teste está dividido em duas partes principais que avaliarão:
 ```
 - Acesso à console MySQL dev
 - Usuário: test
-- Senha: cDWDvzrFCRjFdyVE
+- Senha: Ask for Interviewer
 - Host: db.dev.shippify.co
 - Esquema: test
 ```
+
+**Nota**: O entrevistador fornecerá a senha no início do teste.
 
 **Ambiente**
 
