@@ -36,6 +36,19 @@ Sign in URL: https://shippifydev.signin.aws.amazon.com/console
 - Conectar-se ao MySQL via terminal
 - Realizar uma conexão local de teste
 
+**Instruções Básicas**:
+- **Região**: sa-east-1
+- Criar um **Key Pair** para acesso SSH à instância
+- Usar o **VPC padrão**: `vpc-55f72333 | Default VPC`
+- Criar um **Security Group** com as seguintes regras:
+  - SSH (porta 22) - acesso do seu IP ou 0.0.0.0/0
+  - MySQL (porta 3306) - acesso do seu IP ou 0.0.0.0/0
+- Usar uma **imagem Free Tier** (Amazon Linux 2 ou Ubuntu) com tipo de instância mínima (ex: t2.micro ou t3.micro)
+- Conectar-se à instância via SSH usando o Key Pair criado
+- Instalar MySQL 8 na instância
+- Configurar o MySQL para aceitar conexões remotas e criar um usuário de teste
+- Testar a conexão ao MySQL localmente na instância
+
 **Nota**: Você pode usar a internet para consultar informações sobre instalação e configuração.
 
 ---

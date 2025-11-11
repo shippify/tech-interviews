@@ -36,6 +36,19 @@ Sign in URL: https://shippifydev.signin.aws.amazon.com/console
 - Connect to MySQL via terminal
 - Perform a local test connection
 
+**Basic Instructions**:
+- **Region**: sa-east-1
+- Create a **Key Pair** for SSH access to the instance
+- Use the **default VPC**: `vpc-55f72333 | Default VPC`
+- Create a **Security Group** with the following rules:
+  - SSH (port 22) - access from your IP or 0.0.0.0/0
+  - MySQL (port 3306) - access from your IP or 0.0.0.0/0
+- Use a **Free Tier image** (Amazon Linux 2 or Ubuntu) with minimal instance type (e.g., t2.micro or t3.micro)
+- Connect to the instance via SSH using the created Key Pair
+- Install MySQL 8 on the instance
+- Configure MySQL to accept remote connections and create a test user
+- Test the MySQL connection locally on the instance
+
 **Note**: You can use the internet to look up installation and configuration information.
 
 ---
