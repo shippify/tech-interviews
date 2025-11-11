@@ -1,18 +1,18 @@
-# Prueba Técnica – SRE Senior
+# Teste Técnico – SRE Sênior
 
-## Descripción General
+## Descrição Geral
 
-Esta prueba técnica está diseñada para evaluar tus habilidades como **Site Reliability Engineer (SRE) Senior** en Shippify. Durante esta prueba, trabajarás con servicios de AWS para resolver problemas reales de infraestructura, monitoreo y optimización de costos.
+Este teste técnico foi projetado para avaliar suas habilidades como **Site Reliability Engineer (SRE) Sênior** na Shippify. Durante este teste, você trabalhará com serviços da AWS para resolver problemas reais de infraestrutura, monitoramento e otimização de custos.
 
-La prueba está dividida en dos partes principales que evaluarán:
-- **Parte 1 - Preguntas técnicas**: Monitoreo, alertas y FinOps (10 minutos)
-- **Parte 2 - Caso de uso**: Troubleshooting e investigación de problemas de latencia (40 minutos)
+O teste está dividido em duas partes principais que avaliarão:
+- **Parte 1 - Perguntas técnicas**: Monitoramento, alertas e FinOps (10 minutos)
+- **Parte 2 - Caso de uso**: Troubleshooting e investigação de problemas de latência (40 minutos)
 
 ---
 
-## 🔐 Credenciales de AWS
+## 🔐 Credenciais AWS
 
-Para acceder al ambiente de pruebas, utiliza las siguientes credenciales:
+Para acessar o ambiente de testes, utilize as seguintes credenciais:
 
 ```
 Username: Tests
@@ -20,45 +20,45 @@ Password: Ask for Interviewer
 Sign in URL: https://shippifydev.signin.aws.amazon.com/console
 ```
 
-**Nota**: El entrevistador te proporcionará la contraseña al inicio de la prueba.
+**Nota**: O entrevistador fornecerá a senha no início do teste.
 
 ---
 
-## 🔹 PARTE 1: Preguntas Técnicas (10 minutos)
+## 🔹 PARTE 1: Perguntas Técnicas (10 minutos)
 
-### 1. **Alarmas de disponibilidad y latencia (5 min)**
+### 1. **Alarmes de disponibilidade e latência (5 min)**
 
-**Objetivo**: Configurar alarmas en CloudWatch para monitorear la salud de la aplicación.
+**Objetivo**: Configurar alarmes no CloudWatch para monitorar a saúde da aplicação.
 
-**Tareas**:
-- Crear alarmas en CloudWatch para:
-  - a) `5XXError` del `ALB` (Application Load Balancer)
-  - b) `TargetResponseTime p95` (percentil 95 del tiempo de respuesta)
-- Configurar el envío de notificaciones al SNS: `dev-topic`
+**Tarefas**:
+- Criar alarmes no CloudWatch para:
+  - a) `5XXError` do `ALB` (Application Load Balancer)
+  - b) `TargetResponseTime p95` (percentil 95 do tempo de resposta)
+- Configurar o envio de notificações para o SNS: `dev-topic`
 
 ---
 
 ### 2. **FinOps (5 min)**
 
-**Objetivo**: Proponer estrategias para reducir costos operativos en AWS.
+**Objetivo**: Propor estratégias para reduzir custos operacionais na AWS.
 
 **Contexto**: 
-Se han identificado dos costos elevados en el último mes:
+Foram identificados dois custos elevados no último mês:
 
-1. **Almacenamiento histórico de objetos S3**: $1000 mensuales
-2. **Almacenamiento de logs en CloudWatch**: $500 mensuales (Data retention - nivel de logs)
+1. **Armazenamento histórico de objetos S3**: $1000 mensais
+2. **Armazenamento de logs no CloudWatch**: $500 mensais (Data retention - nível de logs)
 
-**Tareas**:
-- Para cada uno de estos costos, propón una estrategia de solución
+**Tarefas**:
+- Para cada um desses custos, proponha uma estratégia de solução
 
 ---
 
 ## 🔹 PARTE 2: Caso de Uso (40 minutos)
 
-### Ambiente de Pruebas
+### Ambiente de Testes
 
 ```
-- Región: sa-east-1
+- Região: sa-east-1
 - Lambda: lambda-function-test-infra-stg-testSlowLambda-r1
 - API Gateway: Slow Lambda Test API
 - DynamoDB Table: slow-lambda-test-table
@@ -66,36 +66,62 @@ Se han identificado dos costos elevados en el último mes:
 
 ---
 
-### ⚙️ Caso 1: Lambda con latencia intermitente — *Throttling o cold starts*
+### ⚙️ Caso 1: Lambda com latência intermitente — *Throttling ou cold starts*
 
 #### Contexto
 
-El equipo de desarrollo reporta que un endpoint de **API Gateway + Lambda** está tardando más de 5 segundos en responder, pero **no todo el tiempo**. La Lambda accede a una **tabla DynamoDB** para realizar operaciones.
+A equipe de desenvolvimento reportou no dia **10 de novembro** que um endpoint de **API Gateway + Lambda** está demorando mais de 5 segundos para responder, mas **não o tempo todo**. A Lambda acessa uma **tabela DynamoDB** para realizar operações.
 
-#### Tareas
+**Você deve revisar as métricas históricas desde o dia 10 de novembro** para investigar o problema e testar o endpoint novamente para ver o funcionamento atual.
 
-1. **Investigación del problema** (15 min)
-   - Investiga la causa del problema
+#### Endpoint para Testar
 
-2. **Instrumentación y monitoreo** (10 min)
-   - Implementa instrumentación o métricas para detectar este problema automáticamente en el futuro
+```bash
+curl --location 'https://fmd35obzgb.execute-api.sa-east-1.amazonaws.com/dev/test'
+```
 
-3. **Solución sin downtime** (15 min)
-   - Si se identifica que el problema viene de DynamoDB, implementa una solución sin downtime
+#### Resposta de Exemplo
+
+```json
+{
+    "success": true,
+    "executionTime": {
+        "total": 4950,
+        "coldStart": 4731,
+        "dynamoDBRead": 120,
+        "dynamoDBWrite": 99
+    },
+    "requestId": "aeb988d6-025d-4f8e-a564-741b80b82b77",
+    "key": "test",
+    "timestamp": "2025-11-11T15:47:03.179Z",
+    "message": "Operation completed successfully"
+}
+```
+
+#### Tarefas
+
+1. **Investigação do problema** (15 min)
+   - Investigue a causa do problema
+
+2. **Instrumentação e monitoramento** (10 min)
+   - Implemente instrumentação ou métricas para detectar este problema automaticamente no futuro
+
+3. **Solução sem downtime** (15 min)
+   - Se for identificado que o problema vem do DynamoDB, implemente uma solução sem downtime
 
 ---
 
-## 📋 Criterios de Evaluación
+## 📋 Critérios de Avaliação
 
-- **Monitoreo**: Capacidad para configurar alarmas efectivas y relevantes
-- **FinOps**: Comprensión de estrategias de optimización de costos en AWS
-- **Troubleshooting**: Metodología sistemática para investigar problemas
-- **Solución**: Capacidad para proponer soluciones prácticas sin impacto en producción
-- **Comunicación**: Claridad en la explicación de procesos y decisiones
+- **Monitoramento**: Capacidade de configurar alarmes efetivos e relevantes
+- **FinOps**: Compreensão de estratégias de otimização de custos na AWS
+- **Troubleshooting**: Metodologia sistemática para investigar problemas
+- **Solução**: Capacidade de propor soluções práticas sem impacto em produção
+- **Comunicação**: Clareza na explicação de processos e decisões
 
 ---
 
-## ⏱️ Tiempo Total Estimado
+## ⏱️ Tempo Total Estimado
 
 - Parte 1: 10 minutos
 - Parte 2: 40 minutos
@@ -105,9 +131,9 @@ El equipo de desarrollo reporta que un endpoint de **API Gateway + Lambda** est�
 
 ## 📝 Notas Importantes
 
-- Puedes usar internet para consultar información que no conozcas, pero no para resolver todo el problema
-- **No está permitido el uso de IA** (ChatGPT, Copilot, etc.)
-- El trabajo debe ser práctico, no se requiere documentación escrita
-- Si tienes dudas sobre el ambiente o recursos, puedes preguntar al entrevistador
+- Você pode usar a internet para consultar informações que não conheça, mas não para resolver todo o problema
+- **Não é permitido o uso de IA** (ChatGPT, Copilot, etc.)
+- O trabalho deve ser prático, não é necessária documentação escrita
+- Se tiver dúvidas sobre o ambiente ou recursos, pode perguntar ao entrevistador
 
-¡Buena suerte!
+Boa sorte!

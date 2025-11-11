@@ -70,7 +70,33 @@ Two high costs have been identified in the last month:
 
 #### Context
 
-The development team reports that an **API Gateway + Lambda** endpoint is taking more than 5 seconds to respond, but **not all the time**. The Lambda accesses a **DynamoDB table** to perform operations.
+The development team reported on **November 10th** that an **API Gateway + Lambda** endpoint is taking more than 5 seconds to respond, but **not all the time**. The Lambda accesses a **DynamoDB table** to perform operations.
+
+**You must review historical metrics from November 10th** to investigate the problem and test the endpoint again to see the current behavior.
+
+#### Endpoint to Test
+
+```bash
+curl --location 'https://fmd35obzgb.execute-api.sa-east-1.amazonaws.com/dev/test'
+```
+
+#### Example Response
+
+```json
+{
+    "success": true,
+    "executionTime": {
+        "total": 4950,
+        "coldStart": 4731,
+        "dynamoDBRead": 120,
+        "dynamoDBWrite": 99
+    },
+    "requestId": "aeb988d6-025d-4f8e-a564-741b80b82b77",
+    "key": "test",
+    "timestamp": "2025-11-11T15:47:03.179Z",
+    "message": "Operation completed successfully"
+}
+```
 
 #### Tasks
 
