@@ -2,7 +2,7 @@
 
 ## Overview
 
-This technical test is designed to evaluate your skills as a **Senior Site Reliability Engineer (SRE)** at Shippify. During this test, you will work with AWS services to solve real infrastructure, monitoring, and cost optimization problems.
+This technical test is designed to evaluate your skills as a **Senior Site Reliability Engineer (SRE/DEVOPS)** at Shippify. During this test, you will work with AWS services to solve real infrastructure, monitoring, and cost optimization problems.
 
 The test is divided into two main parts that will evaluate:
 - **Part 1 - Technical questions**: Monitoring, alerts and FinOps (10 minutes)
@@ -46,7 +46,7 @@ Sign in URL: https://shippifydev.signin.aws.amazon.com/console
 Two high costs have been identified in the last month:
 
 1. **Historical S3 object storage**: $1000 monthly
-2. **CloudWatch log storage**: $500 monthly (Data retention - log level)
+2. **CloudWatch log storage**: $500 monthly
 
 **Tasks**:
 - For each of these costs, propose a solution strategy

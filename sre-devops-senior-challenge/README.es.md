@@ -2,7 +2,7 @@
 
 ## Descripción General
 
-Esta prueba técnica está diseñada para evaluar tus habilidades como **Site Reliability Engineer (SRE) Senior** en Shippify. Durante esta prueba, trabajarás con servicios de AWS para resolver problemas reales de infraestructura, monitoreo y optimización de costos.
+Esta prueba técnica está diseñada para evaluar tus habilidades como **Site Reliability Engineer (SRE/DEVOPS) Senior** en Shippify. Durante esta prueba, trabajarás con servicios de AWS para resolver problemas reales de infraestructura, monitoreo y optimización de costos.
 
 La prueba está dividida en dos partes principales que evaluarán:
 - **Parte 1 - Preguntas técnicas**: Monitoreo, alertas y FinOps (10 minutos)
@@ -46,7 +46,7 @@ Sign in URL: https://shippifydev.signin.aws.amazon.com/console
 Se han identificado dos costos elevados en el último mes:
 
 1. **Almacenamiento histórico de objetos S3**: $1000 mensuales
-2. **Almacenamiento de logs en CloudWatch**: $500 mensuales (Data retention - nivel de logs)
+2. **Almacenamiento de logs en CloudWatch**: $500 mensuales
 
 **Tareas**:
 - Para cada uno de estos costos, propón una estrategia de solución

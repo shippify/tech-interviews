@@ -1,8 +1,8 @@
-# Teste Técnico – SRE Sênior
+# Teste Técnico – SRE/DEVOPS Sênior
 
 ## Descrição Geral
 
-Este teste técnico foi projetado para avaliar suas habilidades como **Site Reliability Engineer (SRE) Sênior** na Shippify. Durante este teste, você trabalhará com serviços da AWS para resolver problemas reais de infraestrutura, monitoramento e otimização de custos.
+Este teste técnico foi projetado para avaliar suas habilidades como **Site Reliability Engineer (SRE/DEVOPS) Sênior** na Shippify. Durante este teste, você trabalhará com serviços da AWS para resolver problemas reais de infraestrutura, monitoramento e otimização de custos.
 
 O teste está dividido em duas partes principais que avaliarão:
 - **Parte 1 - Perguntas técnicas**: Monitoramento, alertas e FinOps (10 minutos)
@@ -46,7 +46,7 @@ Sign in URL: https://shippifydev.signin.aws.amazon.com/console
 Foram identificados dois custos elevados no último mês:
 
 1. **Armazenamento histórico de objetos S3**: $1000 mensais
-2. **Armazenamento de logs no CloudWatch**: $500 mensais (Data retention - nível de logs)
+2. **Armazenamento de logs no CloudWatch**: $500 mensais
 
 **Tarefas**:
 - Para cada um desses custos, proponha uma estratégia de solução
