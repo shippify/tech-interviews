@@ -84,7 +84,8 @@ O **serviço estará inicialmente desligado**, portanto será necessário **lig�
 #### Endpoint para Teste
 
 ```http
-GET https://api.dev.shippify.co/v1/deliveries/:id/complete```
+GET https://api.dev.shippify.co/v1/deliveries/:id/complete
+```
 
 
 Durante os testes, o tráfego deve ser visível chegando ao novo serviço.
