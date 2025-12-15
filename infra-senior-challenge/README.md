@@ -114,19 +114,15 @@ Não deve haver downtime para outros endpoints
 
 O roteamento deve afetar somente o path especificado
 
-O foco é validar tráfego real, não apenas configuração
-
 ### 📋 Critérios de Avaliação
 
-ECS / Fargate: Criação e configuração corretas do serviço
+- ECS / Fargate: Criação e configuração corretas do serviço
 
-Load Balancer: Uso adequado de regras de roteamento por path
+- Load Balancer: Uso adequado de regras de roteamento por path
 
-Observabilidade: Uso eficaz de logs e métricas no CloudWatch
+- Troubleshooting: Capacidade de validar e confirmar o fluxo de tráfego
 
-Troubleshooting: Capacidade de validar e confirmar o fluxo de tráfego
-
-Comunicação: Clareza na explicação das decisões e validações
+- Comunicação: Clareza na explicação das decisões e validações
 
 ---
 
