@@ -1,4 +1,4 @@
-# Teste Técnico – SRE Sênior
+# Teste Técnico – INFRA Sênior
 
 ## Descrição Geral
 
