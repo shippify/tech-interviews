@@ -108,7 +108,7 @@ Co- nfiguração de roteamento no Load Balancer (10 min)
 
 - Explicar quais métricas e alarmes seriam adicionados para produção
 
-Restrições
+### Restrições
 
 Não deve haver downtime para outros endpoints
 
@@ -116,7 +116,7 @@ O roteamento deve afetar somente o path especificado
 
 O foco é validar tráfego real, não apenas configuração
 
-📋 Critérios de Avaliação
+### 📋 Critérios de Avaliação
 
 ECS / Fargate: Criação e configuração corretas do serviço
 
