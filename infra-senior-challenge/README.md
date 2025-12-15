@@ -62,7 +62,7 @@ Sign in URL: https://shippifydev.signin.aws.amazon.com/console
 
 ---
 
-### ⚙️ Caso : ECS Fargate Cluster Traffic Configuration 
+### ⚙️ Caso: Configuração de Tráfego do Cluster ECS Fargate
 
 #### Contexto
 
